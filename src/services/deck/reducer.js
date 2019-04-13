@@ -1,10 +1,5 @@
+import createReducer from "redux/createReducer";
 import Types from 'redux/types';
-
-const createReducer = (initialState, reducerMap) => (state = initialState, action) =>
-{
-    const reducer = reducerMap[action.type];
-    return reducer ? reducer(state, action) : state;
-};
 
 const INIT_STATE = {
     deck_id: null,

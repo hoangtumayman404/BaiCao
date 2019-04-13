@@ -1,27 +1,43 @@
-import 'components/ActionButton/styles.css';
 import React from 'react';
 import {connect} from 'react-redux';
+import {shuffleCard, revealCard, drawCard} from "services/buttonAction/action";
+import './styles.css';
 
 class ActionButton extends React.PureComponent
 {
-    componentDidMount()
+    handleShuffleCards = () =>
     {
+        this.props.shuffleCard();
+    };
 
-    }
+    handleRevealCards = () =>
+    {
+        this.props.revealCard();
+    };
+
+    handleDrawCards = () =>
+    {
+        this.props.drawCard();
+    };
 
     render()
     {
+        const {reveal, draw, shuffle} = this.props;
+        console.log(draw || shuffle.loading, shuffle.loading || reveal, !draw || shuffle.loading);
         return (
             <div className='button-container'>
-                <div className='button-item'>
-                    BUTTON 1
-                </div>
-                <div className='score-player'>
-                    BUTTON 2
-                </div>
-                <div className='score-player'>
-                    BUTTON 3
-                </div>
+                <button className='button-item' onClick={this.handleShuffleCards}
+                        disabled={draw || shuffle.loading}>
+                    Shuffle
+                </button>
+                <button className='button-item' onClick={this.handleDrawCards}
+                        disabled={shuffle.loading || reveal}>
+                    Draw
+                </button>
+                <button className='button-item' onClick={this.handleRevealCards}
+                        disabled={!draw || shuffle.loading}>
+                    Reveal
+                </button>
             </div>
         );
     }
@@ -30,14 +46,18 @@ class ActionButton extends React.PureComponent
 const mapStateToProps = state =>
 {
     return {
-        deckId: state.deck.deck_id,
+        reveal: state.buttonAction.drawCard,
+        draw: state.buttonAction.drawCard,
+        shuffle: state.buttonAction.shuffle,
     };
 };
 
 const mapDispatchToProps = dispatch =>
 {
     return {
-        getDeckId: () => {},
+        shuffleCard: () => dispatch(shuffleCard()),
+        revealCard: () => dispatch(revealCard()),
+        drawCard: () => dispatch(drawCard()),
     };
 };
 

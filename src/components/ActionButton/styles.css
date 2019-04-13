@@ -1,16 +1,6 @@
 .button-container
 {
     width           : 100%;
-    background      : chocolate;
     display         : flex;
     justify-content : space-between;
-}
-
-.button-item
-{
-    flex        : 1;
-    margin      : 5px;
-    background  : aqua;
-    display     : flex;
-    align-items : center;
 }

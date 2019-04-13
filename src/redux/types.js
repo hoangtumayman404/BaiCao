@@ -23,4 +23,11 @@ const keyMirror = (obj) =>
 
 export default keyMirror({
     GET_DECK_ID: null,
+    GET_SHUFFLE_CARD: null,
+    REVEAL_CARD: null,
+    DRAW_CARD: null,
+    UPDATE_ROUND: null,
+    UPDATE_SCORE: null,
+    UPDATE_NAME: null,
+    GET_CARD: null,
 });

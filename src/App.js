@@ -1,5 +1,6 @@
 import 'App.css';
 import React, {Component} from 'react';
+import {connect} from "react-redux";
 import Home from "screens/Home";
 
 class App extends Component
@@ -8,10 +9,17 @@ class App extends Component
     {
         return (
             <div className='App'>
-                <Home/>
+                <Home key={this.props.round}/>
             </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps = (state) =>
+{
+    return {
+        round: state.buttonAction.round,
+    };
+};
+
+export default connect(mapStateToProps)(App);

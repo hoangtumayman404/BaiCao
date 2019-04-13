@@ -27,27 +27,60 @@
 
 .home-player-12
 {
-    height     : var(--size-deck);
+    height     : 200px;
     background : red;
 }
 
 .home-player-3
 {
-    width      : var(--size-deck);
+    width      : 270px;
     background : green;
     left       : auto;
 }
 
 .home-player-6
 {
-    height     : var(--size-deck);
+    height     : 200px;
     background : blue;
     top        : auto;
 }
 
 .home-player-9
 {
-    width      : var(--size-deck);
+    width      : 270px;
     background : yellow;
     right      : auto;
+}
+
+.home-round
+{
+    position                   : absolute;
+    top                        : 0;
+    left                       : 0;
+    z-index                    : 10;
+    padding                    : 10px;
+    height                     : 100px;
+    width                      : 100px;
+    background                 : aqua;
+    border-bottom-right-radius : 100px;
+    text-align                 : start;
+    font-size                  : 5rem;
+}
+
+.rotate
+{
+    animation : rotate-keyframes 1s;
+}
+
+@keyframes rotate-keyframes
+{
+    from
+    {
+        transform : rotate(0deg);
+    }
+
+    to
+    {
+        transform : rotate(180deg);
+    }
 }

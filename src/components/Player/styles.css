@@ -1,0 +1,13 @@
+.card-image
+{
+    width  : 75px;
+    margin : 5px;
+}
+
+.player-name
+{
+    padding       : 8px 15px;
+    background    : white;
+    border-radius : 20px;
+    min-width     : 100px;
+}

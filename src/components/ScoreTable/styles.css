@@ -4,18 +4,24 @@
     top            : 0;
     right          : 0;
     width          : 250px;
-    height         : 150px;
     background     : gray;
     display        : flex;
     flex-direction : column;
     z-index        : 10;
+    margin         : 5px;
+    border-radius  : 15px;
+    overflow       : hidden;
+    padding        : 5px;
 }
 
 .score-player
 {
-    flex        : 1;
-    margin      : 5px;
-    background  : aqua;
-    display     : flex;
-    align-items : center;
+    border-radius   : 9px;
+    flex            : 1;
+    margin          : 3px;
+    padding         : 5px 7px;
+    background      : aqua;
+    display         : flex;
+    align-items     : center;
+    justify-content : space-between;
 }
