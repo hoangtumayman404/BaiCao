@@ -3,4 +3,5 @@
     text-align : center;
     min-height : 100vh;
     height     : 100vh;
+    min-width  : 1024px;
 }
