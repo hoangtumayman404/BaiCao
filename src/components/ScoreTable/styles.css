@@ -1,0 +1,21 @@
+.score-container
+{
+    position       : absolute;
+    top            : 0;
+    right          : 0;
+    width          : 250px;
+    height         : 150px;
+    background     : gray;
+    display        : flex;
+    flex-direction : column;
+    z-index        : 10;
+}
+
+.score-player
+{
+    flex        : 1;
+    margin      : 5px;
+    background  : aqua;
+    display     : flex;
+    align-items : center;
+}

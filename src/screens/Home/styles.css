@@ -1,0 +1,53 @@
+:root
+{
+    --size-deck : 50px;
+}
+
+.home-container
+{
+    height          : 100%;
+    width           : 100%;
+    display         : flex;
+    position        : relative;
+    align-items     : center;
+    justify-content : center;
+}
+
+.home-player
+{
+    position        : absolute;
+    top             : 0;
+    left            : 0;
+    right           : 0;
+    bottom          : 0;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+}
+
+.home-player-12
+{
+    height     : var(--size-deck);
+    background : red;
+}
+
+.home-player-3
+{
+    width      : var(--size-deck);
+    background : green;
+    left       : auto;
+}
+
+.home-player-6
+{
+    height     : var(--size-deck);
+    background : blue;
+    top        : auto;
+}
+
+.home-player-9
+{
+    width      : var(--size-deck);
+    background : yellow;
+    right      : auto;
+}
