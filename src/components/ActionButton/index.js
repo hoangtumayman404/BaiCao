@@ -23,7 +23,6 @@ class ActionButton extends React.PureComponent
     render()
     {
         const {reveal, draw, shuffle} = this.props;
-        console.log(draw || shuffle.loading, shuffle.loading || reveal, !draw || shuffle.loading);
         return (
             <div className='button-container'>
                 <button className='button-item' onClick={this.handleShuffleCards}

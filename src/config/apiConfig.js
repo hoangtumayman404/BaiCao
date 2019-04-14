@@ -19,13 +19,11 @@ export const fetchApi = (endPoint) =>
             if (response.data) return response.data;
             if (response.status === 200) return {};
 
-            throw "Có lỗi xảy ra";
+            alert("Có lỗi xảy ra, vui lòng tải lại ứng dụng");
         }
     })
     .catch((error) =>
     {
-        //if (!network) throw 'Không thể kết nối với máy chủ, vui lòng kiểm tra lại đường truyền internet và thử lại.';
-
         const {response, message} = error;
         if (response)
         {
@@ -37,21 +35,19 @@ export const fetchApi = (endPoint) =>
                 if (detail) throw detail;
                 if (message) throw message;
             }
-            if (status >= 500) throw 'Có lỗi không mong muốn xảy ra, vui lòng thử tải lại trang';
-            if (status >= 400) throw 'Có lỗi do truy cập vào tài nguyên không được cấp phép, vui lòng tải lại trang';
+            if (status >= 500) alert("Có lỗi xảy ra, vui lòng tải lại ứng dụng");
+            if (status >= 400) alert("Có lỗi xảy ra, vui lòng tải lại ứng dụng");
         }
         if (message)
         {
-            if (error.message.includes('timeout of'))
-                throw 'Không thể kết nối với máy chủ, vui lòng kiểm tra lại đường truyền internet và thử lại.';
+            if (error.message.includes('timeout of')) alert("Có lỗi xảy ra, vui lòng tải lại ứng dụng");
 
-            if (message.toString().includes('Network Error'))
-                throw 'Lỗi kết nối mạng';
+            if (message.toString().includes('Network Error')) alert("Lỗi kết nối mạng, vui lòng tải lại ứng dụng");
 
-            throw message;
+            throw alert(message);
         }
 
-        if (error.toString().includes('Network Error')) throw 'Lỗi kết nối mạng';
+        if (error.toString().includes('Network Error')) alert("Lỗi kết nối mạng, vui lòng tải lại ứng dụng");
         throw error;
     });
 };

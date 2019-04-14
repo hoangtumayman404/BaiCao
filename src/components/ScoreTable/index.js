@@ -31,11 +31,9 @@ class ScoreTable extends React.PureComponent
         {
             const maxScore = Math.max(...arrayScore);
 
-            const count = arrayScore.reduce((sum, score) => sum += score === maxScore, 0);
+            const count = arrayScore.reduce((total, score) => total += score === maxScore, 0);
 
             const playerScore = Math.floor(totalPlayerScores / count);
-
-            console.log('maxScore', arrayScore, maxScore, count, playerScore);
 
             let userWin = [];
             arrayScore.forEach((score, index) =>

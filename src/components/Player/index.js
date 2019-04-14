@@ -1,4 +1,4 @@
-import cardBack from 'assets/cardback.png';
+import Card from "components/Card";
 import {CARD_SCORE} from "components/Player/variable";
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {getCard, updateName, updateScore} from "services/player/action";
 import './styles.css';
 
-class PlayerCard extends React.PureComponent
+class Player extends React.PureComponent
 {
     constructor(props)
     {
@@ -17,12 +17,12 @@ class PlayerCard extends React.PureComponent
 
     renderCards = () =>
     {
-        const {cards, revealCard} = this.props;
+        const {cards} = this.props;
         return cards.map((card, index) =>
         {
             const {image, code} = card;
             return (
-                <img src={revealCard ? image : cardBack} alt={code} className='card-image' key={index}/>
+                <Card image={image} code={code} key={index}/>
             );
         });
     };
@@ -32,7 +32,7 @@ class PlayerCard extends React.PureComponent
         const {cards, updateScore} = this.props;
         if (cards.length < 3) return;
         const sum = cards.reduce((sum, card) => sum + CARD_SCORE[card.value], 0);
-        console.log('updateScore', cards.map(card => card.value).sort().join(''));
+
         if (sum === 30 && cards.map(card => card.value).sort().join('') === 'JACKKINGQUEEN') updateScore(10);
         else updateScore(sum % 10);
     };
@@ -47,10 +47,10 @@ class PlayerCard extends React.PureComponent
 
     render()
     {
-        const {playerName, index} = this.props;
+        const {playerName} = this.props;
         return (
             <div>
-                <div>
+                <div className='player-card'>
                     {this.renderCards()}
                 </div>
                 <div className='player-name'>
@@ -61,7 +61,7 @@ class PlayerCard extends React.PureComponent
     }
 }
 
-PlayerCard.propTypes = {
+Player.propTypes = {
     playerName: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
 };
@@ -87,4 +87,4 @@ const mapDispatchToProps = (dispatch, ownProps) =>
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerCard);
+export default connect(mapStateToProps, mapDispatchToProps)(Player);
